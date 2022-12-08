@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import static com.codeborne.selenide.Selenide.$$x;
 
-public class weatherForecast {
+public class WeatherForecast {
 
     public static void detailedWeather(Integer daysCount) {
 
@@ -18,7 +18,7 @@ public class weatherForecast {
 
 
         for (int i = 0; i != daysCount; i++) {
-            ArrayList<String> weatherForecast = new ArrayList<String>();
+            ArrayList<String> weatherForecast = new ArrayList<>();
             weatherForecast.add((dayNumber.get(i).getText()));
             weatherForecast.add((morningTemperature.get(i).getOwnText()));
             weatherForecast.add((dayTemperature.get(i).getOwnText()));

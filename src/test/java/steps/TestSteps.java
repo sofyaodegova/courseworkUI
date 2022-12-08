@@ -3,34 +3,35 @@ package steps;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
-import pageObjects.openMainPage;
-import pageObjects.setIzhevskAsCity;
-import pageObjects.weatherForecast;
+import pageObjects.OpenMainPage;
+import pageObjects.SetIzhevskAsCity;
+import pageObjects.WeatherForecast;
 
 public class TestSteps {
 
     @Дано("^Открываю главную страницу сайта$")
     public void openingMainPage() {
-        openMainPage.openMainPage();
+        OpenMainPage.openMainPage();
     }
 
     @Когда("^Появляется всплывающее окно, закрываю его$")
     public void closingPopUp() {
-        openMainPage.closePopUpWindow();
+        OpenMainPage.closePopUpWindow();
     }
 
-    @Когда("^Выбираю город Ижевск, Удмуртская Республика$")
+    @Когда("^Выбираю город$")
     public void selectIzh() {
-        setIzhevskAsCity.setIzhevskAsCity();
+        SetIzhevskAsCity.enterIzhevskAsCity("Ижевск");
+        SetIzhevskAsCity.selectIzhevskUR("Ижевск, Удмуртская Республика");
     }
 
-    @Когда("^Выбираю Подробный прогноз на '(.*)' дней$")
-    public void selectForecast(int daysCount) {
-        setIzhevskAsCity.selectDetailedForecast();
+    @Когда("^Выбираю Подробный прогноз на 10 дней$")
+    public void selectForecast() {
+        SetIzhevskAsCity.selectDetailedForecast();
     }
 
     @Тогда("^Получаю Подробный прогноз на '(.*)' дней$")
     public void getForecast(int daysCount) {
-        weatherForecast.detailedWeather(daysCount);
+        WeatherForecast.detailedWeather(daysCount);
     }
 }
