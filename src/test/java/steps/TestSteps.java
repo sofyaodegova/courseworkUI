@@ -4,7 +4,7 @@ import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
 import pageObjects.OpenMainPage;
-import pageObjects.SetIzhevskAsCity;
+import pageObjects.SetCity;
 import pageObjects.WeatherForecast;
 
 public class TestSteps {
@@ -21,13 +21,13 @@ public class TestSteps {
 
     @Когда("^Выбираю город$")
     public void selectIzh() {
-        SetIzhevskAsCity.enterIzhevskAsCity("Ижевск");
-        SetIzhevskAsCity.selectIzhevskUR("Ижевск, Удмуртская Республика");
+        SetCity.enterCity("Ижевск");
+        SetCity.selectCity("Ижевск, Удмуртская Республика");
     }
 
     @Когда("^Выбираю Подробный прогноз на 10 дней$")
     public void selectForecast() {
-        SetIzhevskAsCity.selectDetailedForecast();
+        SetCity.selectDetailedForecast();
     }
 
     @Тогда("^Получаю Подробный прогноз на '(.*)' дней$")
